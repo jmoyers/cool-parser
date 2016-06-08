@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ $1 = "-d" ]; then
+  shift
+  ./lexer $* > lexer.out
+  gdb -ex "set args $* < lexer.out" ./parser
+elif [ $1 = "-r" ]; then
+  shift
+  /usr/class/cs143/bin/reflexer $* | /usr/class/cs143/bin/refparser $* 
+else
+  ./lexer $* | ./parser $*
+fi

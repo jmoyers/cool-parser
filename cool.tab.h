@@ -1,14 +1,13 @@
-/* A Bison parser, made by GNU Bison 2.3.  */
+/* A Bison parser, made by GNU Bison 3.0.4.  */
 
-/* Skeleton interface for Bison's Yacc-like parsers in C
+/* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006
-   Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
 
-   This program is free software; you can redistribute it and/or modify
+   This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2, or (at your option)
-   any later version.
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -16,9 +15,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -33,39 +30,48 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* Tokens.  */
+#ifndef YY_COOL_YY_COOL_TAB_H_INCLUDED
+# define YY_COOL_YY_COOL_TAB_H_INCLUDED
+/* Debug traces.  */
+#ifndef YYDEBUG
+# define YYDEBUG 1
+#endif
+#if YYDEBUG
+extern int cool_yydebug;
+#endif
+
+/* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
-   /* Put the tokens into the symbol table, so that GDB and other debuggers
-      know about them.  */
-   enum yytokentype {
-     CLASS = 258,
-     ELSE = 259,
-     FI = 260,
-     IF = 261,
-     IN = 262,
-     INHERITS = 263,
-     LET = 264,
-     LOOP = 265,
-     POOL = 266,
-     THEN = 267,
-     WHILE = 268,
-     CASE = 269,
-     ESAC = 270,
-     OF = 271,
-     DARROW = 272,
-     NEW = 273,
-     ISVOID = 274,
-     STR_CONST = 275,
-     INT_CONST = 276,
-     BOOL_CONST = 277,
-     TYPEID = 278,
-     OBJECTID = 279,
-     ASSIGN = 280,
-     NOT = 281,
-     LE = 282,
-     ERROR = 283
-   };
+  enum yytokentype
+  {
+    CLASS = 258,
+    ELSE = 259,
+    FI = 260,
+    IF = 261,
+    IN = 262,
+    INHERITS = 263,
+    LET = 264,
+    LOOP = 265,
+    POOL = 266,
+    THEN = 267,
+    WHILE = 268,
+    CASE = 269,
+    ESAC = 270,
+    OF = 271,
+    DARROW = 272,
+    NEW = 273,
+    ISVOID = 274,
+    STR_CONST = 275,
+    INT_CONST = 276,
+    BOOL_CONST = 277,
+    TYPEID = 278,
+    OBJECTID = 279,
+    ASSIGN = 280,
+    NOT = 281,
+    LE = 282,
+    ERROR = 283
+  };
 #endif
 /* Tokens.  */
 #define CLASS 258
@@ -95,13 +101,13 @@
 #define LE 282
 #define ERROR 283
 
-
-
-
+/* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE
-#line 89 "cool.y"
+
+union YYSTYPE
 {
+#line 89 "cool.y" /* yacc.c:1915  */
+
       Boolean boolean;
       Symbol symbol;
       Program program;
@@ -116,28 +122,33 @@ typedef union YYSTYPE
       Expression expression;
       Expressions expressions;
       char *error_msg;
-    }
-/* Line 1529 of yacc.c.  */
-#line 122 "cool.tab.h"
-	YYSTYPE;
-# define yystype YYSTYPE /* obsolescent; will be withdrawn */
-# define YYSTYPE_IS_DECLARED 1
+    
+
+#line 128 "cool.tab.h" /* yacc.c:1915  */
+};
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
+# define YYSTYPE_IS_DECLARED 1
 #endif
 
-extern YYSTYPE cool_yylval;
-
+/* Location type.  */
 #if ! defined YYLTYPE && ! defined YYLTYPE_IS_DECLARED
-typedef struct YYLTYPE
+typedef struct YYLTYPE YYLTYPE;
+struct YYLTYPE
 {
   int first_line;
   int first_column;
   int last_line;
   int last_column;
-} YYLTYPE;
-# define yyltype YYLTYPE /* obsolescent; will be withdrawn */
+};
 # define YYLTYPE_IS_DECLARED 1
 # define YYLTYPE_IS_TRIVIAL 1
 #endif
 
+
+extern YYSTYPE cool_yylval;
 extern YYLTYPE cool_yylloc;
+int cool_yyparse (void);
+
+#endif /* !YY_COOL_YY_COOL_TAB_H_INCLUDED  */

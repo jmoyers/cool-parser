@@ -2,9 +2,11 @@ clean:
 	rm -f cool-parser.cc
 	rm -f *.o
 
-parser:
+bison:
 	bison -d -v -y -b cool --debug -p cool_yy cool.y
 	mv cool.tab.c cool-parser.cc
+
+parser: bison
 	clang++ -Wall -Iinclude -stdlib=libc++ -c cool-parser.cc
 	clang++ -Wall -Iinclude -stdlib=libc++ -c course/parser-phase.cc
 	clang++ -Wall -Iinclude -stdlib=libc++ -c course/utilities.cc

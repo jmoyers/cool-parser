@@ -106,25 +106,24 @@ extern int cool_yydebug;
 
 union YYSTYPE
 {
-#line 89 "cool.y" /* yacc.c:1915  */
+#line 83 "cool.y" /* yacc.c:1915  */
 
-      Boolean boolean;
-      Symbol symbol;
-      Program program;
-      Class_ class_;
-      Classes classes;
-      Feature feature;
-      Features features;
-      Formal formal;
-      Formals formals;
-      Case case_;
-      Cases cases;
-      Expression expression;
-      Expressions expressions;
-      char *error_msg;
-    
+  Boolean boolean;
+  Symbol symbol;
+  Program program;
+  Class_ class_;
+  Classes classes;
+  Feature feature;
+  Features features;
+  Formal formal;
+  Formals formals;
+  Case case_;
+  Cases cases;
+  Expression expression;
+  Expressions expressions;
+  char *error_msg;
 
-#line 128 "cool.tab.h" /* yacc.c:1915  */
+#line 127 "cool.tab.h" /* yacc.c:1915  */
 };
 
 typedef union YYSTYPE YYSTYPE;

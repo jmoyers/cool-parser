@@ -175,7 +175,9 @@ class_list
   ;
 
 class	
-  : CLASS TYPEID '{' '}' ';'
+  : CLASS error '{' '}' ';'
+  | CLASS error '{' feature_list '}' ';'
+  | CLASS TYPEID '{' '}' ';'
   {
     $$ = class_($2, idtable.add_string("Object"), nil_Features(), 
       stringtable.add_string(curr_filename));
@@ -208,7 +210,8 @@ feature_list
   ;
 
 feature 
-  : OBJECTID '(' ')' ':' TYPEID '{' expression '}' ';'
+  : error ';' 
+  | OBJECTID '(' ')' ':' TYPEID '{' expression '}' ';'
   {
     $$ = method($1, nil_Formals(), $5, $7);
   }
@@ -331,6 +334,7 @@ expression_block
   {
     $$ = single_Expressions($1);
   }
+  | expression_block ';' error ';' 
   | expression_block ';' expression ';'
   {
     $$ = append_Expressions($1, single_Expressions($3));
@@ -398,7 +402,8 @@ cond_expression
   ;
 
 let_expression
-  : LET OBJECTID ':' TYPEID ASSIGN expression IN expression %prec LET
+  : LET error IN expression
+  | LET OBJECTID ':' TYPEID ASSIGN expression IN expression %prec LET
   {
     $$ = let($2, $4, $6, $8);
   }

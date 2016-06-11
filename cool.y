@@ -145,6 +145,7 @@ documentation for details). */
 
 %left '.' '@'
 %left ASSIGN
+%precedence LET
 %left LE '<' '=' 
 %left '+' '-' 
 %left '*' '/'
@@ -309,9 +310,9 @@ expression
   }
   | cond_expression
   | dispatch_expression
-  | let_expression
   | while_expression
   | case_expression
+  | let_expression
   ;
 
 expression_list
@@ -397,7 +398,7 @@ cond_expression
   ;
 
 let_expression
-  : LET OBJECTID ':' TYPEID ASSIGN expression IN expression
+  : LET OBJECTID ':' TYPEID ASSIGN expression IN expression %prec LET
   {
     $$ = let($2, $4, $6, $8);
   }

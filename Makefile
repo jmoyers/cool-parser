@@ -3,7 +3,7 @@ clean:
 	rm -f *.o
 
 bison:
-	bison -d -v -y -b cool --debug -p cool_yy cool.y
+	bison -Wno-other -d -v -y -b cool --debug -p cool_yy cool.y
 	mv cool.tab.c cool-parser.cc
 
 parser: bison

@@ -1,5 +1,4 @@
-Work in progress bison parser for cool language. This is for OSX.
+Complete (for my purposes) bison parser for cool language. Setup is for OSX.
 
-TODO:
-* Multi dec let statements
-* Line number special handling
+* Multi dec let statements aren't supported
+* No special line number handling is done (bison default)
